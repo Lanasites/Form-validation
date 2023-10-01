@@ -13,15 +13,18 @@
     <form action="" novalidate class="form">
         <div class="form__input">
             <label for="name" class="form__input__label">Имя: </label>
-            <input type="text" name="name" id="name" class="form__input__input" required />
+            <input type="text" name="name" id="name" class="form__input__input" required minlength="2" maxlength="20"
+                placeholder="Введите имя" />
         </div>
         <div class="form__input">
             <label for="email" class="form__input__label">Email: </label>
-            <input type="text" name="email" id="email" class="form__input__input" required />
+            <input type="text" name="email" id="email" class="form__input__input" required
+                placeholder='Введите адрес электронной почты' />
         </div>
         <div class="form__input">
             <label for="age" class="form__input__label">Возраст: </label>
-            <input type="text" name="age" id="age" class="form__input__input" required />
+            <input type="text" name="age" id="age" class="form__input__input" required
+                placeholder='Введите количество полных лет' />
         </div>
         <div class="form__input">
             <legend class="form__input__label">Пол:</legend>
@@ -36,23 +39,26 @@
         </div>
         <div class="form__input">
             <label for="profession" class="form__input__label">Профессия: </label>
-            <select name="pets" id="profession" required>
-                <option value="">--Выберите вариант из списка--</option>
-                <option value="dog">Dog</option>
-                <option value="cat">Cat</option>
-                <option value="hamster">Hamster</option>
-                <option value="parrot">Parrot</option>
-                <option value="spider">Spider</option>
-                <option value="goldfish">Goldfish</option>
+            <select name="pets" id="profession" required class="form__input__input">
+                <option value="">Выберите вариант из списка</option>
+                <option value="doctor">Врач</option>
+                <option value="programer">Программист</option>
+                <option value="teacher">Учитель</option>
+                <option value="disiner">Дизайнер</option>
+                <option value="ingener">Инженер</option>
+                <option value="salesman">Продавец</option>
+                <option value="other">Другое</option>
             </select>
         </div>
         <div class="form__input">
             <label for="parol1" class="form__input__label">Пароль: </label>
-            <input type="text" name="parol1" id="parol1" class="form__input__input" required />
+            <input type="text" name="parol1" id="parol1" class="form__input__input" required
+                placeholder="Введите пароль" minlength="8" pattern="" />
         </div>
         <div class="form__input">
             <label for="parol2" class="form__input__label">Введите пароль еще раз: </label>
-            <input type="text" name="parol2" id="parol2" class="form__input__input" required />
+            <input type="text" name="parol2" id="parol2" class="form__input__input" required
+                placeholder="Введите пароль" minlength="8" pattern="" />
         </div>
         <div class="form__input">
             <input type="checkbox" id="agreement" name="agreement" required class="form__input__checkbox" />
