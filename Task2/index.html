@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/styles.css">
+</head>
+
+<body>
+    <h1>Форма регистрации</h1>
+    <form action="" novalidate class="form">
+        <div class="form__input">
+            <label for="name" class="form__input__label">Имя: </label>
+            <input type="text" name="name" id="name" class="form__input__input" required />
+        </div>
+        <div class="form__input">
+            <label for="email" class="form__input__label">Email: </label>
+            <input type="text" name="email" id="email" class="form__input__input" required />
+        </div>
+        <div class="form__input">
+            <label for="age" class="form__input__label">Возраст: </label>
+            <input type="text" name="age" id="age" class="form__input__input" required />
+        </div>
+        <div class="form__input">
+            <legend class="form__input__label">Пол:</legend>
+            <div class="form__input__sex">
+                <div>
+                    <input type="radio" name="sex" id="man" /><label for="man">Ж</label>
+                </div>
+                <div>
+                    <input type="radio" name="sex" id="women" /><label for="women">М</label>
+                </div>
+            </div>
+        </div>
+        <div class="form__input">
+            <label for="profession" class="form__input__label">Профессия: </label>
+            <select name="pets" id="profession" required>
+                <option value="">--Выберите вариант из списка--</option>
+                <option value="dog">Dog</option>
+                <option value="cat">Cat</option>
+                <option value="hamster">Hamster</option>
+                <option value="parrot">Parrot</option>
+                <option value="spider">Spider</option>
+                <option value="goldfish">Goldfish</option>
+            </select>
+        </div>
+        <div class="form__input">
+            <label for="parol1" class="form__input__label">Пароль: </label>
+            <input type="text" name="parol1" id="parol1" class="form__input__input" required />
+        </div>
+        <div class="form__input">
+            <label for="parol2" class="form__input__label">Введите пароль еще раз: </label>
+            <input type="text" name="parol2" id="parol2" class="form__input__input" required />
+        </div>
+        <div class="form__input">
+            <input type="checkbox" id="agreement" name="agreement" required class="form__input__checkbox" />
+            <label for="agreement">Согласие на обработку моих персональных данных</label>
+        </div>
+        <input type="submit" value="Отправить данные" class="form__btn">
+    </form>
+    <script src="./script.js"></script>
+</body>
+
+</html>

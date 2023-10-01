@@ -1,0 +1,53 @@
+h1 {
+  text-align: center;
+}
+
+.form {
+  border: 1px solid rgb(160, 160, 160);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  padding: 60px 20px;
+  width: 50%;
+  margin: auto;
+  min-width: -moz-max-content;
+  min-width: max-content;
+}
+.form__input {
+  display: grid;
+  grid-template-columns: 200px 300px;
+  grid-auto-rows: minmax(40px, auto);
+}
+.form__input__input {
+  padding-left: 10px;
+}
+.form__input__label {
+  padding-right: 10px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+.form__input__checkbox {
+  align-self: self-start;
+  justify-self: end;
+  margin-right: 10px;
+}
+.form__input__sex {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.form__btn {
+  width: 20vw;
+  min-width: 200px;
+  height: 60px;
+  border: 0px;
+  background-color: rgb(193, 255, 234);
+}
+.form__btn:hover {
+  background-color: rgb(185, 246, 246);
+  border: 1px solid rgb(89, 97, 101);
+  font-weight: 600;
+}/*# sourceMappingURL=styles.css.map */

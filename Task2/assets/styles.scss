@@ -1,0 +1,61 @@
+h1 {
+    text-align: center;
+}
+
+.form {
+    border: 1px solid rgb(160, 160, 160);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    padding: 60px 20px;
+    width: 50%;
+    margin: auto;
+    min-width: max-content;
+
+    &__input {
+        // border: 1px solid red;
+        display: grid;
+        grid-template-columns: 200px 300px;
+        grid-auto-rows: minmax(40px, auto);
+
+        &__input{
+            padding-left: 10px;
+        }
+
+        &__label {
+            padding-right: 10px;
+            // border: 1px solid green;
+            display: flex;
+            justify-content: end;
+            align-items: center;
+        }
+
+        &__checkbox {
+            align-self: self-start;
+            justify-self: end;
+            margin-right: 10px;
+        }
+
+        &__sex {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+    }
+
+    &__btn {
+        width: 20vw;
+        min-width: 200px;
+        height: 60px;
+        border: 0px;
+        background-color: rgb(193, 255, 234);
+
+        &:hover {
+            background-color: rgb(185, 246, 246);
+            border: 1px solid rgb(89, 97, 101);
+            font-weight: 600;
+        }
+    }
+}
