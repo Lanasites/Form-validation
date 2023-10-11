@@ -10,7 +10,8 @@ nameInput.oninput = function () {
     let nameValue = nameInput.value;
     if (nameValue.match(namePattern) || nameValue == "") {
         errorName.classList.add('invisible');
-        nameInput.classList.remove('form__input__error'); //убрать подсветку поля красным
+        switchOfError(nameInput);
+        // nameInput.classList.remove('form__input__error'); //убрать подсветку поля красным
     } else {
         errorName.classList.remove('invisible');
 
@@ -19,12 +20,13 @@ nameInput.oninput = function () {
 //email
 const emailInput = document.getElementById('email');
 const errorEmail = document.querySelector('.error_email');
-const emailPattern = /^[/^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,30}$/i;
+const emailPattern = /^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,30}$/i;
 emailInput.oninput = function () {
     let emailValue = emailInput.value;
     if (emailValue.match(emailPattern) || emailValue == "") {
         errorEmail.classList.add('invisible');
-        emailInput.classList.remove('form__input__error'); //убрать подсветку поля красным
+        switchOfError(emailInput);
+        // emailInput.classList.remove('form__input__error'); //убрать подсветку поля красным
     } else {
         errorEmail.classList.remove('invisible');
     }
@@ -36,9 +38,11 @@ ageInput.oninput = function () {
     let ageValue = ageInput.value;
     if (ageValue >= 14 && ageValue < 100) {
         errorAge.classList.add('invisible');
-        ageInput.classList.remove('form__input__error'); //убрать подсветку поля красным
+        switchOfError(ageInput);
+        // ageInput.classList.remove('form__input__error'); //убрать подсветку поля красным
     } else {
-        ageInput.classList.add('form__input__error');
+        switchOnError(ageInput);
+        // ageInput.classList.add('form__input__error');
         errorAge.classList.remove('invisible');
     }//добавить подсветку поля красным
 }
@@ -56,7 +60,8 @@ ageInput.oninput = function () {
 const professionInput = form.elements.professions;
 //console.log(professionInput);
 professionInput.onchange = function () {
-    professionInput.classList.remove('form__input__error');
+    switchOfError(professionInput);
+    // professionInput.classList.remove('form__input__error');
 }
 
 //пароль первое поле
@@ -97,7 +102,7 @@ agreementInput.onchange = function () {
 //функция валидации при нажатии на кнопку
 function validation(event) {
     event.preventDefault(event); //отмена события по умолчанию
-    let test = 'false';
+    let test = false;
     const sexInput = form.elements.sex;
 
     //очищение формы от ошибок
@@ -120,7 +125,7 @@ function validation(event) {
     test = validationAgreement(agreementInput);
 
     // console.log(test);
-    if (test == 'true') {
+    if (test == true) {
         console.log('Ура! Все данные введены верно');
         console.log('Ваше имя:', nameInput.value);
         console.log('Ваш email:', emailInput.value);
@@ -148,16 +153,18 @@ function validationName(input) {
     {
         input.classList.add('form__input__error'); //подсветить поле красным
         error.classList.remove('invisible'); // показать ошибку, что не все поля заполнены
-        return 'false';
+        return false;
     } else if (errorPattern) //если ошибок ввода нет
     {
         error.classList.add('invisible'); //скрыть ошибку формата ввода
-        input.classList.remove('form__input__error');//убрать красную подсветку поля
+        switchOfError(input);
+        // input.classList.remove('form__input__error');//убрать красную подсветку поля
         console.log('валидания имени прошла успешно');
-        return 'true';
+        return true;
     } else {//подсветить поле с ошибкой
-        input.classList.add('form__input__error');
-        return 'false';
+        switchOnError(input);
+        // input.classList.add('form__input__error');
+        return false;
     }
 }
 function validationEmail(input) {
@@ -166,18 +173,21 @@ function validationEmail(input) {
 
     if (validity.valueMissing) //значение не введено
     {
-        input.classList.add('form__input__error'); //подсветить поле красным
+        switchOnError(input);
+        // input.classList.add('form__input__error'); //подсветить поле красным
         error.classList.remove('invisible'); // показать ошибку, что не все поля заполнены
-        return 'false';
+        return false;
     } else if (errorPattern) //если ошибок ввода нет
     {
         error.classList.add('invisible'); //скрыть ошибку формата ввода
-        input.classList.remove('form__input__error');//убрать красную подсветку поля
+        switchOfError(input);
+        // input.classList.remove('form__input__error');//убрать красную подсветку поля
         console.log('валидания email прошла успешно');
-        return 'true';
+        return true;
     } else {//подсветить поле с ошибкой
-        input.classList.add('form__input__error');
-        return 'false';
+        // input.classList.add('form__input__error');
+        switchOnError(input);
+        return false;
     }
 }
 
@@ -186,17 +196,20 @@ function validationAge(input) {
     let errorPattern = errorAge.classList.contains('invisible');//false, если есть ошибка формата ввода
     if (validity.valueMissing) //значение не введено
     {
-        input.classList.add('form__input__error'); //подсветить поле красным
-        return 'false';
+        switchOnError(input);
+        // input.classList.add('form__input__error'); //подсветить поле красным
+        return false;
     } else if (errorPattern) //если ошибок ввода нет
     {
         error.classList.add('invisible'); //скрыть ошибку формата ввода
-        input.classList.remove('form__input__error');//убрать красную подсветку поля
+        switchOfError(input);
+        // input.classList.remove('form__input__error');//убрать красную подсветку поля
         console.log('валидания возраста прошла успешно');
-        return 'true';
+        return true;
     } else {//подсветить поле с ошибкой
-        input.classList.add('form__input__error');
-        return 'false';
+        switchOnError(input);
+        // input.classList.add('form__input__error');
+        return false;
     }
 }
 // в заданнии не было это поле обязательным
@@ -213,11 +226,13 @@ function validationAge(input) {
 function validationProfession(input) {
     if (input.selectedIndex > 0) {
         // console.log('не выбран пол');
-        professionInput.classList.remove('form__input__error');
+        switchOfError(input);
+        // professionInput.classList.remove('form__input__error');
         console.log('валидания профессии прошла успешно');
         return 'true';
     } else {
-        professionInput.classList.add('form__input__error');
+        switchOnError(input);
+        // professionInput.classList.add('form__input__error');
         return 'false';
     }
 }
@@ -228,18 +243,21 @@ function validationPassword(input) {
 
     if (validity.valueMissing) //значение не введено
     {
-        input.classList.add('form__input__error'); //подсветить поле красным
+        switchOnError(input);
+        // input.classList.add('form__input__error'); //подсветить поле красным
         error.classList.remove('invisible'); // показать ошибку, что не все поля заполнены
-        return 'false';
+        return false;
     } else if (errorPattern) //если ошибок ввода нет
     {
         error.classList.add('invisible'); //скрыть ошибку формата ввода
-        input.classList.remove('form__input__error');//убрать красную подсветку поля
+        switchOfError(input);
+        // input.classList.remove('form__input__error');//убрать красную подсветку поля
         console.log('валидания пароля1 прошла успешно');
-        return 'true';
+        return true;
     } else {//подсветить поле с ошибкой
-        input.classList.add('form__input__error');
-        return 'false';
+        switchOnError(input);
+        // input.classList.add('form__input__error');
+        return false;
     }
 }
 
@@ -248,9 +266,15 @@ function validationAgreement(input) {
     if (input.checked) {
         agreementLabel.classList.remove('form__input__errorLebel');
         console.log('валидания согласия прошла успешно');
-        return 'true';
+        return true;
     } else {
         agreementLabel.classList.add('form__input__errorLebel');
-        return 'false';
+        return false;
     }
+}
+function switchOfError(input) {
+    input.classList.remove('form__input__error');
+}
+function switchOnError(input) {
+    input.classList.add('form__input__error');
 }

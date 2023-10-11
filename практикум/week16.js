@@ -170,8 +170,9 @@ function makeTen() {
 	for (let i = 0; i < form4Elements.length; i++) {
 		if (form4Elements[i].type === 'radio') {
 			paragraphTen.textContent = form4Elements[i].value;
+			break;
 		}
-		break;
+		
 	}
 }
 
